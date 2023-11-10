@@ -136,6 +136,12 @@
         polkit-kde-agent # Password asker thing
         appimage-run
         tofi # runner
+
+        firefox
+        chromium
+        discord
+        obs-studio
+        steam
     ];
 
     boot.binfmt.registrations.appimage = {

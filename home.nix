@@ -5,19 +5,12 @@
     home.homeDirectory = "/home/vivax";
 
     home.packages = with pkgs; [
-        firefox
-        chromium
-
-        discord
-        obs-studio
-
         fortune # random quotes
 
         git
         gh
 
         # games
-        steam
         protontricks
         protonup-ng # proton-GE
         prismlauncher

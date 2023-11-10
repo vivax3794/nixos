@@ -33,7 +33,6 @@
         tree-sitter
 
         neofetch
-        tofi # runner
     ];
 
     # shell

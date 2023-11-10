@@ -135,6 +135,7 @@
 
         polkit-kde-agent # Password asker thing
         appimage-run
+        tofi # runner
     ];
 
     boot.binfmt.registrations.appimage = {

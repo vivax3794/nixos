@@ -33,6 +33,7 @@
         tree-sitter
 
         neofetch
+        tofi # runner
     ];
 
     # shell
@@ -77,6 +78,7 @@
     home.file.".config/hypr/hyprland.conf".source = ./dotfiles/hyprland.conf;
     home.file.".config/waybar/config".source =  ./dotfiles/waybar;
     home.file.".config/waybar/style.css".source = ./dotfiles/waybar.css;
+    home.file.".config/tofi/config".source = ./dotfiles/tofi;
 
     programs.neovim = {
         enable = true;

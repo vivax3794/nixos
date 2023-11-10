@@ -111,7 +111,6 @@
 
         dunst # notifications
         swww  # wallpaper
-        tofi # runner
 
         # shell
         fish

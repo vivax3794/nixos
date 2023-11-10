@@ -81,7 +81,7 @@
         recursive = true;
     };
 
-    home.file.".config/hypr/hyprpaper.conf" = ''
+    home.file.".config/hypr/hyprpaper.conf".text = ''
     preload = /home/vivax/wallpaper/monitor1.jpg
     preload = /home/vivax/wallpaper/monitor2.jpg
 

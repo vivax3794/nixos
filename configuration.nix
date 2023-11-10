@@ -110,7 +110,7 @@
         wl-clipboard
 
         dunst # notifications
-        swww  # wallpaper
+        hyprpaper
 
         # shell
         fish

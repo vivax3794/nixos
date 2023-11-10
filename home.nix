@@ -82,11 +82,11 @@
     };
 
     home.file.".config/hypr/hyprpaper.conf" = ''
-    preload = /home/vivax/wallpaper/monitor1.png
-    preload = /home/vivax/wallpaper/monitor2.png
+    preload = /home/vivax/wallpaper/monitor1.jpg
+    preload = /home/vivax/wallpaper/monitor2.jpg
 
-    wallpaper = moitor1,/home/vivax/wallpaper/monitor1.png
-    wallpaper = moitor2,/home/vivax/wallpaper/monitor2.png
+    wallpaper = moitor1,/home/vivax/wallpaper/monitor1.jpg
+    wallpaper = moitor2,/home/vivax/wallpaper/monitor2.jpg
     '';
 
     home.stateVersion = "23.05";

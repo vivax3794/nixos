@@ -85,8 +85,8 @@
     preload = /home/vivax/wallpaper/monitor1.jpg
     preload = /home/vivax/wallpaper/monitor2.jpg
 
-    wallpaper = moitor1,/home/vivax/wallpaper/monitor1.jpg
-    wallpaper = moitor2,/home/vivax/wallpaper/monitor2.jpg
+    wallpaper = HDMI-A-1,/home/vivax/wallpaper/monitor1.jpg
+    wallpaper = DP-1,/home/vivax/wallpaper/monitor2.jpg
     '';
 
     home.stateVersion = "23.05";

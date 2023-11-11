@@ -28,7 +28,11 @@ return {
     {
         "williamboman/mason.nvim",
         lazy = false,
-        opts = {}
+        opts = {
+            -- rust-analyzer doesnt install correctly with mason
+            -- Use the one from the nix-shell
+            PATH = "append"
+        }
     },
     {
         "williamboman/mason-lspconfig.nvim",

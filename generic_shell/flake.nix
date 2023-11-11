@@ -1,5 +1,5 @@
 {
-  description = "FluentWeb";
+  description = "Genric dev shells that work for most projects";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -19,9 +19,10 @@
       {
         devShells.rust = mkShell {
             buildInputs = [
-                ( rust-bin.selectLatestNightlyWith (toolchain: toolchain.default.override {
+                ( rust-bin.selectLatestNWith (toolchain: toolchain.default.override {
                     extensions = ["rust-analyzer"];
                 }) )
+                rust-bin.stable.default
                 cargo-nextest
             ];
         };

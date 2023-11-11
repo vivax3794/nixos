@@ -144,6 +144,9 @@
         steam
         obsidian
         krita
+
+        git
+        gh
     ];
 
     boot.binfmt.registrations.appimage = {

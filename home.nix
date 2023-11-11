@@ -7,9 +7,6 @@
     home.packages = with pkgs; [
         fortune # random quotes
 
-        git
-        gh
-
         # games
         protontricks
         protonup-ng # proton-GE
@@ -56,7 +53,7 @@
         shellIntegration.enableFishIntegration = true;
         font.name = "Fira Code Nerdfont";
         settings = {
-            font_size = 12;
+            font_size = 14;
             disable_ligratures = "cursor";
             background_opacity = "0.9";
             shell = "zellij";

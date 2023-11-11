@@ -22,7 +22,7 @@
                 ( rust-bin.selectLatestNWith (toolchain: toolchain.default.override {
                     extensions = ["rust-analyzer"];
                 }) )
-                rust-bin.stable.default
+                rust-bin.stable.latest.default
                 cargo-nextest
             ];
         };

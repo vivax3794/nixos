@@ -24,6 +24,11 @@ return {
             }
         end
     },
+    {
+        "williamboman/mason.nvim",
+        lazy = false,
+        opts = {}
+    },
     "hrsh7th/cmp-nvim-lsp",
     "SirVer/ultisnips",
     "quangnguyen30192/cmp-nvim-ultisnips",

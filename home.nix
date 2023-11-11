@@ -44,6 +44,9 @@
 
             d = "nix develop --command fish";
             n = "nix develop --command nvim";
+
+            dr = "nix develop '/home/vivax/flakes#rust' --command fish";
+            dn = "nix develop '/home/vivax/flakes#node' --command fish";
         };
     };
     programs.starship = {
@@ -82,12 +85,15 @@
         recursive = true;
     };
 
-    home.file.".config/hypr/hyprpaper.conf".text = ''
-    preload = /home/vivax/wallpaper/monitor1.jpg
-    preload = /home/vivax/wallpaper/monitor2.jpg
+    home.file.".config/hypr/hyprpaper.conf".text = let
+        monitor1 = "/etc/nixos/wallpaper/monitor1.jpg";
+        monitor2 = "/etc/nixos/wallpaper/monitor2.jpg";
+    in ''
+    preload = ${monitor1} 
+    preload = ${monitor2} 
 
-    wallpaper = HDMI-A-1,/home/vivax/wallpaper/monitor1.jpg
-    wallpaper = DP-1,/home/vivax/wallpaper/monitor2.jpg
+    wallpaper = HDMI-A-1,${monitor1}
+    wallpaper = DP-1,${monitor2}
     '';
 
     home.stateVersion = "23.05";

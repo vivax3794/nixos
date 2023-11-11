@@ -30,16 +30,16 @@ return {
         lazy = false,
         opts = {}
     },
-    {
-        "williamboman/mason-lspconfig.nvim",
-        dependencies = {"williamboman/mason.nvim"},
-        opts = {
-            ensure_installed = {
-                "rust_analyzer", 
-                "volar"
-            }
-        }
-    },
+    -- {
+    --     "williamboman/mason-lspconfig.nvim",
+    --     dependencies = {"williamboman/mason.nvim"},
+    --     opts = {
+    --         ensure_installed = {
+    --             "rust_analyzer", 
+    --             "volar"
+    --         }
+    --     }
+    -- },
     "hrsh7th/cmp-nvim-lsp",
     "SirVer/ultisnips",
     "quangnguyen30192/cmp-nvim-ultisnips",

@@ -16,9 +16,7 @@
         prismlauncher
         dolphin-emu
 
-        krita # Drawing
         nvtop # Nvidia usage
-        obsidian
 
         # Neovim
         ripgrep

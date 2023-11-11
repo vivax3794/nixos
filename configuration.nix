@@ -142,6 +142,8 @@
         discord
         obs-studio
         steam
+        obsidian
+        krita
     ];
 
     boot.binfmt.registrations.appimage = {

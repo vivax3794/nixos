@@ -24,6 +24,7 @@
         ripgrep
         fd
         tree-sitter
+        clang
 
         neofetch
     ];

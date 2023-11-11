@@ -45,8 +45,8 @@
             d = "nix develop --command fish";
             n = "nix develop --command nvim";
 
-            dr = "nix develop '/etc/nixos/generic_shells/#rust' --command fish";
-            dn = "nix develop '/etc/nixos/generic_shells/#node' --command fish";
+            dr = "nix develop '/etc/nixos/generic_shell/#rust' --command fish";
+            dn = "nix develop '/etc/nixos/generic_shell/#node' --command fish";
         };
     };
     programs.starship = {

@@ -18,6 +18,7 @@ return {
     {
         "neovim/nvim-lspconfig",
         lazy = false,
+        dependencies = {"williamboman/mason-lspconfig.nvim"},
         config = function()
             require'lspconfig'.volar.setup{
               filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'}
@@ -28,6 +29,16 @@ return {
         "williamboman/mason.nvim",
         lazy = false,
         opts = {}
+    },
+    {
+        "williamboman/mason-lspconfig.nvim",
+        dependencies = {"williamboman/mason.nvim"},
+        opts = {
+            ensure_installed = {
+                "rust_analyzer", 
+                "volar"
+            }
+        }
     },
     "hrsh7th/cmp-nvim-lsp",
     "SirVer/ultisnips",

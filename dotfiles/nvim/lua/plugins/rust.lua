@@ -12,7 +12,6 @@ return {
                 -- Code action groups
                 vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
 
-                vim.keymap.set('n', '<Leader>r', vim.lsp.buf.rename, {buffer = bufnr})
             end,
 
             settings = {

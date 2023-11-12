@@ -147,6 +147,8 @@
 
         git
         gh
+
+        cloudflared
     ];
 
     boot.binfmt.registrations.appimage = {

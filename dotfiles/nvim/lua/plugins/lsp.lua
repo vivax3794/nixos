@@ -21,8 +21,15 @@ return {
         dependencies = {"williamboman/mason-lspconfig.nvim"},
         config = function()
             require'lspconfig'.volar.setup{
-              filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'}
+                filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'}
             }
+
+            vim.api.nvim_create_autocmd("LspAttach", {
+                group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+                callback = function(ev)
+                    vim.keymap.set('n', '<Leader>r', vim.lsp.buf.rename, {buffer = bufnr})
+                end
+            })
         end
     },
     {
@@ -40,7 +47,8 @@ return {
         opts = {
             ensure_installed = {
                 "rust_analyzer", 
-                "volar"
+                "volar",
+                "typescript"
             }
         }
     },

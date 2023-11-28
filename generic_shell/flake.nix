@@ -20,9 +20,10 @@
         devShells.rust = mkShell {
             buildInputs = [
                 ( rust-bin.selectLatestNightlyWith (toolchain: toolchain.default.override {
-                    extensions = ["rust-analyzer"];
                 }) )
                 rust-bin.stable.latest.default
+                rust-analyzer
+                mold
                 cargo-nextest
             ];
         };

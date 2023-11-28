@@ -79,6 +79,7 @@
     programs.hyprland.enableNvidiaPatches = true;
     programs.waybar.enable = true;
     programs.xwayland.enable = true;
+    programs.gamemode.enable = true;
 
     xdg.portal = {
         enable = true;

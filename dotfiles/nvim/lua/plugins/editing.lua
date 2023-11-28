@@ -43,5 +43,9 @@ return {
     {
         "lambdalisue/suda.vim",
         lazy = false,
+    },
+    {
+        "mg979/vim-visual-multi",
+        lazy = false,
     }
 }

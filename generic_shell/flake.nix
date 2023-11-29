@@ -34,7 +34,7 @@
         };
         devShells.python = mkShell {
             buildInputs = [
-                python311,
+                python311
                 python311Packages.ipython
             ];
         };

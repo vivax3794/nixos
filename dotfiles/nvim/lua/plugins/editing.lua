@@ -12,6 +12,8 @@ vim.opt.formatoptions = "l"
 vim.opt.lbr = true
 vim.opt.showbreak = "> "
 
+vim.g.VM_leader = ",,"
+
 vim.keymap.set("i", "<C-s>", "<Esc>:wa<CR>a")
 vim.keymap.set("n", "<C-s>", ":wa<CR><CR>")
 vim.keymap.set("n", "<leader>q", ":wqa<CR>")

@@ -31,6 +31,7 @@
 
             dr = "nix develop '/etc/nixos/generic_shell/#rust' --command fish";
             dn = "nix develop '/etc/nixos/generic_shell/#node' --command fish";
+            dp = "nix develop '/etc/nixos/generic_shell/#python' --command ipython";
         };
     };
     programs.starship = {

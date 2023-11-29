@@ -24,11 +24,18 @@
                 }) )
                 rust-bin.stable.latest.default
                 cargo-nextest
+                cargo-generate
             ];
         };
         devShells.node = mkShell {
             buildInputs = [
                 nodejs_20
+            ];
+        };
+        devShells.python = mkShell {
+            buildInputs = [
+                python311,
+                python311Packages.ipython
             ];
         };
     }

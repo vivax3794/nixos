@@ -1,0 +1,82 @@
+//! {{project-name}}
+
+#![warn(
+    clippy::pedantic,
+    clippy::clone_on_ref_ptr,
+    clippy::create_dir,
+    clippy::filetype_is_file,
+    clippy::fn_to_numeric_cast_any,
+    clippy::if_then_some_else_none,
+    missing_docs,
+    clippy::missing_docs_in_private_items,
+    missing_copy_implementations,
+    missing_debug_implementations,
+    clippy::missing_const_for_fn,
+    clippy::mixed_read_write_in_expression,
+    clippy::panic,
+    clippy::partial_pub_fields,
+    clippy::same_name_method,
+    clippy::str_to_string,
+    clippy::suspicious_xor_used_as_pow,
+    clippy::try_err,
+    clippy::unneeded_field_pattern,
+    clippy::use_debug,
+    clippy::verbose_file_reads,
+    clippy::expect_used
+)]
+#![deny(
+    clippy::unwrap_used,
+    clippy::unreachable,
+    clippy::unimplemented,
+    clippy::todo,
+    clippy::dbg_macro,
+    clippy::error_impl_error,
+    clippy::exit,
+    clippy::panic_in_result_fn,
+    clippy::tests_outside_test_module
+)]
+#![allow(clippy::module_name_repetitions)]
+
+use bevy::prelude::*;
+
+mod camera;
+mod states;
+
+/// Z Ordering
+#[repr(u8)]
+enum ZOrdering {
+    /// Z level of the main camera
+    Camera
+}
+
+impl From<ZOrdering> for f32 {
+    // Bevy uses floats for z-index
+    // And we dont have big enough values for this to matter
+    #[allow(clippy::cast_lossless)]
+    fn from(val: ZOrdering) -> Self {
+        (val as u8) as f32 * 100.0
+    }
+}
+
+/// Stuff that is likely to be used for most of the plugins
+mod prelude {
+	pub(crate) use bevy_debug_text_overlay::screen_print;
+
+    pub(crate) use super::ZOrdering;
+}
+
+fn main() {
+	let mut app = App::new();
+	app.add_plugins(DefaultPlugins.set(WindowPlugin {
+            primary_window: Some(Window {
+                mode: bevy::window::WindowMode::Fullscreen,
+                ..default()
+            }),
+            ..default()
+        }))
+		.add_plugins(bevy_debug_text_overlay::OverlayPlugin::default())
+        .add_plugins((camera::CameraPlugin, states::StatePlugin));
+	#[cfg(feature = "dev")]
+	app.add_systems(Update, bevy::window::close_on_esc);
+	app.run();
+}

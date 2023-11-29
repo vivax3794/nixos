@@ -11,6 +11,8 @@
         clang
 
         neofetch
+
+        cargo-generate
     ];
 
     # shell
@@ -33,7 +35,8 @@
             dn = "nix develop '/etc/nixos/generic_shell/#node' --command fish";
             dp = "nix develop '/etc/nixos/generic_shell/#python' --command ipython";
 
-            gr = "cargo generate --path /etc/nixos/templates/rust";
+            gr = "cargo-generate gen --path /etc/nixos/templates/rust";
+            gb = "cargo-generate gen --path /etc/nixos/templates/bevy";
         };
     };
     programs.starship = {

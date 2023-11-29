@@ -1,5 +1,5 @@
 {
-  description = "Genric dev shells that work for most projects";
+  description = "Dev shell for bevy";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -17,26 +17,24 @@
       in
       with pkgs;
       {
-        devShells.rust = mkShell {
+        devShells.default = mkShell rec {
+            nativeBuildInputs = [
+               pkg-config
+            ];
+
             buildInputs = [
                 ( rust-bin.selectLatestNightlyWith (toolchain: toolchain.default.override {
                 }) )
                 rust-bin.stable.latest.default
                 rust-analyzer
                 mold
-                cargo-nextest
+
+                udev alsa-lib vulkan-loader
+                xorg.libX11 xorg.libXcursor xorg.libXi xorg.libXrandr # To use the x11 feature
+                libxkbcommon wayland # To use the wayland feature
             ];
-        };
-        devShells.node = mkShell {
-            buildInputs = [
-                nodejs_20
-            ];
-        };
-        devShells.python = mkShell {
-            buildInputs = [
-                python311
-                python311Packages.ipython
-            ];
+
+            LD_LIBRARY_PATH = lib.makeLibraryPath buildInputs;
         };
     }
     );

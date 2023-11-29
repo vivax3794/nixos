@@ -7,7 +7,7 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 
 vim.opt.linebreak = true
-vim.opt.breakident = true
+-- vim.opt.breakident = true
 vim.opt.formatoptions = "l"
 vim.opt.lbr = true
 vim.opt.showbreak = "> "

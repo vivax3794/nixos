@@ -104,9 +104,15 @@
         steam
         obsidian
         krita
+        ldtk
 
         cloudflared
     ];
+
+    hardware.opentabletdriver = {
+        enable = true;
+        daemon.enable = true;
+    };
 
     # For obs virtual cam
     boot.kernelModules = ["v4l2loopback"];

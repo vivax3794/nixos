@@ -1,11 +1,16 @@
 //! All states, and also nested state logic
 
 use bevy::prelude::*;
+use macro_rules_attribute::{derive, derive_alias};
 
 use crate::prelude::*;
 
+derive_alias! {
+    #[derive(StatesAlias!)] = #[derive(States, Hash, Debug, PartialEq, Eq, Clone)];
+}
+
 /// Main global state
-#[derive(States, Hash, Debug, PartialEq, Eq, Default, Clone)]
+#[derive(StatesAlias!, Default)]
 pub enum MainState {
 	/// Loading assets
 	#[default]

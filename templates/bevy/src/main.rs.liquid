@@ -35,12 +35,17 @@
     clippy::panic_in_result_fn,
     clippy::tests_outside_test_module
 )]
-#![allow(clippy::module_name_repetitions)]
+#![allow(clippy::module_name_repetitions, clippy::needless_pass_by_value)]
 
 use bevy::prelude::*;
+use bevy_rapier2d::prelude::*;
 
 mod camera;
 mod states;
+mod assets;
+{% if ldtk %}
+mod world;
+{% endif %}
 
 /// Z Ordering
 #[repr(u8)]
@@ -61,8 +66,12 @@ impl From<ZOrdering> for f32 {
 /// Stuff that is likely to be used for most of the plugins
 mod prelude {
 	pub(crate) use bevy_debug_text_overlay::screen_print;
-
     pub(crate) use super::ZOrdering;
+    pub(crate) use super::states;
+    pub(crate) use super::assets;
+    {% if ldtk %}
+    pub(crate) use bevy_ecs_ldtk::prelude::*;
+    {% endif %}
 }
 
 fn main() {
@@ -75,8 +84,19 @@ fn main() {
             ..default()
         }))
 		.add_plugins(bevy_debug_text_overlay::OverlayPlugin::default())
-        .add_plugins((camera::CameraPlugin, states::StatePlugin));
+        .add_plugins(bevy_tweening::TweeningPlugin)
+        .add_plugins(RapierPhysicsPlugin::<NoUserData>::pixels_per_meter(100.0))
+        .add_plugins((camera::CameraPlugin, states::StatePlugin, assets::AssetPlugin));
+{% if ldtk %}
+    app.add_plugins(world::WorldPlugin);
+{% endif %}
 	#[cfg(feature = "dev")]
 	app.add_systems(Update, bevy::window::close_on_esc);
+    #[cfg(feature = "debug")]
+    app.add_plugins(bevy_inspector_egui::quick::WorldInspectorPlugin::new());
+{% if rapier %}
+    #[cfg(feature = "debug")]
+    app.add_plugins(RapierDebugRenderPlugin::default());
+{% endif %}
 	app.run();
 }

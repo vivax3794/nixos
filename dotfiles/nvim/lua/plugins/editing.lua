@@ -19,6 +19,9 @@ vim.keymap.set("n", "<C-s>", ":wa<CR><CR>")
 vim.keymap.set("n", "<leader>q", ":wqa<CR>")
 vim.keymap.set("n", "<leader>h", ":noh<CR>")
 
+vim.api.nvim_set_keymap('n', '<C-f>', '<C-b>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<C-b>', '<C-f>', {noremap = true})
+
 vim.g.suda_smart_edit = 1
 
 return {

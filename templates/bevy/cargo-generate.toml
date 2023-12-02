@@ -1,0 +1,26 @@
+[placeholders.github]
+type = "bool"
+prompt = "Include github workflow to push to itch"
+default = true
+
+[conditional.'!github']
+ignore = [".github/"]
+
+
+[conditional.'github'.placeholders.itch]
+type = "string"
+prompt = "ItchIo game name"
+
+
+[placeholders.ldtk]
+type = "bool"
+prompt = "Include LDtk level editor?"
+default = true
+
+[conditional.'!ldtk']
+ignore = ["src/world.rs", "assets/world.ldtk"]
+
+[placeholders.rapier]
+type = "bool"
+prompt = "Include rapier physics engine?"
+default = true

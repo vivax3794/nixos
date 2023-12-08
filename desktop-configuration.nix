@@ -75,7 +75,8 @@
         wl-clipboard
 
         dunst # notifications
-        hyprpaper
+        # hyprpaper
+        swww
 
         # virtual cam
         linuxPackages.v4l2loopback

@@ -108,6 +108,7 @@
         ldtk
 
         cloudflared
+        cloudflare-warp
     ];
 
     hardware.opentabletdriver = {

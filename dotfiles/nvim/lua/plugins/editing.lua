@@ -15,7 +15,7 @@ vim.opt.showbreak = "> "
 vim.g.VM_leader = ",,"
 
 vim.keymap.set("i", "<C-s>", "<Esc>:wa<CR>a")
-vim.keymap.set("n", "<C-s>", ":wa<CR><CR>")
+vim.keymap.set("n", "<C-s>", ":wa<CR>")
 vim.keymap.set("n", "<leader>q", ":wqa<CR>")
 vim.keymap.set("n", "<leader>h", ":noh<CR>")
 
@@ -65,4 +65,35 @@ return {
        opts = {},
        lazy = false,
     },
+    {
+        "ziontee113/icon-picker.nvim",
+        lazy = false,
+        config = function()
+            local opts = { noremap = true, silent = true }
+            vim.keymap.set("n", "<Leader>i", "<cmd>IconPickerNormal<cr>", opts)
+            require("icon-picker").setup({
+              disable_legacy_commands = true
+            })
+        end
+    },
+    {
+        "ziontee113/color-picker.nvim",
+        config = function()
+            local opts = { noremap = true, silent = true }
+
+            vim.keymap.set("n", "<C-c>", "<cmd>PickColor<cr>", opts)
+            vim.keymap.set("i", "<C-c>", "<cmd>PickColorInsert<cr>", opts)
+
+            require("color-picker").setup({
+                ["icons"] = {"", ""},
+            })
+            vim.cmd([[hi FloatBorder guibg=NONE]])
+        end,
+        lazy = false,
+    },
+    {
+      'stevearc/dressing.nvim',
+      lazy = false,
+      opts = {},
+    }
 }

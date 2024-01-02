@@ -7,7 +7,8 @@
     ];
 
     nixpkgs.config.permittedInsecurePackages = [
-        "electron-24.8.6"
+        # WHO USES THIS?
+        "electron-25.9.0"
     ];	
 
     nixpkgs.overlays = [
@@ -42,7 +43,7 @@
         displayManager.gdm.enable = true;
     };
     programs.hyprland.enable = true;
-    programs.hyprland.enableNvidiaPatches = true;
+    # programs.hyprland.enableNvidiaPatches = true;
     programs.waybar.enable = true;
     programs.xwayland.enable = true;
     programs.gamemode.enable = true;
@@ -117,7 +118,7 @@
     };
 
     # For obs virtual cam
-    boot.kernelModules = ["v4l2loopback"];
+    boot.kernelModules = ["v4l2loopback" "coretemp" "lm75" "nct6775"];
     boot.extraModulePackages = [pkgs.linuxPackages.v4l2loopback];
     boot.extraModprobeConfig = ''
     options v4l2loopback exclusive_caps=1

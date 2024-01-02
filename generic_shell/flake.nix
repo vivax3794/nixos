@@ -29,7 +29,9 @@
         };
         devShells.node = mkShell {
             buildInputs = [
-                nodejs_20
+                nodejs_21
+                bun
+                yarn
             ];
         };
         devShells.python = mkShell {

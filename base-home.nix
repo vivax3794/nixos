@@ -1,10 +1,9 @@
-{ config, pkgs, ...}:
+{ config, pkgs, inputs, ...}:
 
 {
     home.packages = with pkgs; [
         fortune # random quotes
 
-        # Neovim
         ripgrep
         fd
         tree-sitter
@@ -50,8 +49,10 @@
 
     home.file.".config/zellij/config.kdl".source = ./dotfiles/zellij.kdl;
 
+    
     programs.neovim = {
         enable = true;
+        package = pkgs.neovim-nightly;
         defaultEditor = true;
     }; 
     home.file.".config/nvim" = {

@@ -70,10 +70,12 @@
         extraGroups = [ "networkmanager" "wheel" "video" "docker"];
         packages = with pkgs; [];
     };
+    hardware.keyboard.zsa.enable = true;
 
     environment.systemPackages = with pkgs; [
         wayland
         wl-clipboard
+        wally-cli
 
         dunst # notifications
         # hyprpaper

@@ -21,7 +21,7 @@
         shellIntegration.enableFishIntegration = true;
         font.name = "Fira Code Nerdfont";
         settings = {
-            font_size = 14;
+            font_size = 18;
             disable_ligratures = "cursor";
             background_opacity = "0.9";
             shell = "zellij";

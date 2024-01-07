@@ -17,7 +17,6 @@ vim.diagnostic.config {
 return {
     {
         "neovim/nvim-lspconfig",
-        lazy = false,
         dependencies = {"williamboman/mason-lspconfig.nvim"},
         config = function()
             require'lspconfig'.volar.setup{
@@ -34,10 +33,18 @@ return {
             require'lspconfig'.tailwindcss.setup{}
 
             vim.api.nvim_create_autocmd("LspAttach", {
-                group = vim.api.nvim_create_augroup('UserLspConfig', {}),
-                callback = function(ev)
-                    vim.keymap.set('n', '<Leader>r', vim.lsp.buf.rename, {buffer = bufnr})
-                end
+              group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+              callback = function(args)
+                vim.keymap.set("n", "<Leader>r", vim.lsp.buf.rename, { buffer = bufnr })
+                -- Delay execution of the callback to wait for LSP server initialization
+                vim.defer_fn(function()
+                  -- Check if the LSP server supports inlay hints
+                  local client = vim.lsp.get_client_by_id(args.data.client_id)
+                  if client.server_capabilities.inlayHintProvider then
+                      vim.lsp.inlay_hint.enable(args.buf, true)
+                  end
+                end, 500)
+              end
             })
         end
     },

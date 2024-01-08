@@ -25,18 +25,23 @@ return {
             },
             sections = {
                 -- Dont like that progress thing
-                lualine_y = {"lsp_progress"}
+                lualine_y = {}
             },
             refresh = {
                 statusline = 100
             }
         }
     },
-    "arkav/lualine-lsp-progress",
+    -- "arkav/lualine-lsp-progress",
     {
         "lukas-reineke/indent-blankline.nvim",
-        lazy = false,
         main = "ibl",
         opts = {}
     },
+    {
+      "j-hui/fidget.nvim",
+      opts = {
+        -- options
+      },
+    }
 }

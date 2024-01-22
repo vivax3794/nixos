@@ -20,11 +20,14 @@
         devShells.rust = mkShell {
             buildInputs = [
                 ( rust-bin.selectLatestNightlyWith (toolchain: toolchain.default.override {
+                        targets = ["wasm32-unknown-unknown"];
                 }) )
                 rust-bin.stable.latest.default
                 rust-analyzer
                 mold
                 cargo-nextest
+                gnumake
+                trunk
             ];
         };
         devShells.node = mkShell {

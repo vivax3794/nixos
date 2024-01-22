@@ -38,6 +38,9 @@ return {
               typing = {
                 autoClosingAngleBrackets = true,
               },
+              cargo = {
+                  features = "all"
+              }
             },
           },
         },

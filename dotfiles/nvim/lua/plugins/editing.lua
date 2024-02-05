@@ -95,5 +95,14 @@ return {
       'stevearc/dressing.nvim',
       lazy = false,
       opts = {},
+    },
+    { 'rasulomaroff/reactive.nvim',
+    opts = {
+          builtin = {
+    cursorline = true,
+    cursor = true,
+    modemsg = true
+  }
     }
+}
 }

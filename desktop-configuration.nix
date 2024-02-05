@@ -109,6 +109,9 @@
         obsidian
         krita
         ldtk
+        lutris
+
+        wine
 
         cloudflared
         cloudflare-warp

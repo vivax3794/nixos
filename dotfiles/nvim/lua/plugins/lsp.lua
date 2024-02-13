@@ -142,7 +142,8 @@ return {
                 ignore_install = {"kdl", "html"},
 
                 highlight = {
-                    enable = true
+                    enable = true,
+                    disable = {"vimdoc", "help"}
                 }
             }
             local parser_config = require "nvim-treesitter.parsers".get_parser_configs()

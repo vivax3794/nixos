@@ -12,6 +12,7 @@
         neofetch
 
         cargo-generate
+        lazygit
     ];
 
     # shell

@@ -13,6 +13,7 @@
 
         cargo-generate
         lazygit
+        jq
     ];
 
     # shell

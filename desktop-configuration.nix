@@ -42,6 +42,11 @@
 
         displayManager.gdm.enable = true;
     };
+    services.openssh = {
+        enable = true;
+        settings.PasswordAuthentication = false;
+        settings.KbdInteractiveAuthentication = false;
+    };
     programs.hyprland.enable = true;
     # programs.hyprland.enableNvidiaPatches = true;
     programs.waybar.enable = true;
@@ -69,6 +74,10 @@
         description = "vivax";
         extraGroups = [ "networkmanager" "wheel" "video" "docker"];
         packages = with pkgs; [];
+
+        openssh.authorizedKeys.keys = [
+            "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICJQriJuEQiAyEm0jBbI9hQzUZjRFFffIEWUNbal4VsX vivax"
+        ];
     };
     hardware.keyboard.zsa.enable = true;
 

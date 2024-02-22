@@ -17,7 +17,7 @@ export SWWW_TRANSITION_FPS=120
 # export SWWW_TRANSITION_STEP=2
 
 # This controls (in seconds) when to switch to the next image
-INTERVAL=10
+INTERVAL=60
 
 while true; do
 	find "$1" | sed 1d \

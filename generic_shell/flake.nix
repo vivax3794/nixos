@@ -32,7 +32,6 @@
         };
         devShells.node = mkShell {
             buildInputs = [
-                nodejs_21
                 bun
                 yarn
             ];

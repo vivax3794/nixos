@@ -4,6 +4,14 @@ vim.opt.relativenumber = true
 -- hide normal status bar if not typing command
 vim.opt.cmdheight = 0
 
+local map = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
+
+-- Move to previous/next
+map('n', '<leader>bp', '<Cmd>BufferPrevious<CR>', opts)
+map('n', '<leader>bn', '<Cmd>BufferNext<CR>', opts)
+map('n', '<leader>bc', '<Cmd>BufferClose<CR>', opts)
+map('n', '<leader>bj', '<Cmd>BufferPick<CR>', opts)
 
 return {
     {
@@ -43,5 +51,19 @@ return {
       opts = {
         -- options
       },
-    }
+    },
+  {'romgrk/barbar.nvim',
+    dependencies = {
+      -- 'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
+      'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
+    },
+    init = function() vim.g.barbar_auto_setup = false end,
+    opts = {
+      -- lazy.nvim will automatically call setup for you. put your options here, anything missing will use the default:
+      -- animation = true,
+      -- insert_at_start = true,
+      -- …etc.
+    },
+    version = '^1.0.0', -- optional: only update when a new 1.x version is released
+  }
 }

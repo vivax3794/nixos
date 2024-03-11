@@ -168,4 +168,14 @@
         magicOrExtension = ''\x7fELF....AI\x02'';
     };
 
+swapDevices = [
+  {
+    device = "/swapfile";
+    size = 32768; # Size in MB
+  }
+];
+    networking.firewall = {
+        enable = true;
+        allowedTCPPorts = [ 8188 8000 ];
+    };
 }

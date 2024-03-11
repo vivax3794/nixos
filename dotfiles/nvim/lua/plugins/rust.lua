@@ -8,6 +8,10 @@ local on_attach = function(_, bufnr)
   vim.keymap.set("n", "<Leader>a", function()
     vim.cmd.RustLsp('codeAction') 
   end, { buffer = bufnr })
+
+  vim.keymap.set("n", "<Leader>e", function()
+    vim.cmd.RustLsp('renderDiagnostic') 
+  end, { buffer = bufnr })
 end
 
 return {

@@ -14,6 +14,8 @@
         dolphin-emu
 
         nvtop # Nvidia usage
+        gifsicle # gif optimizer
+        btop
     ];
 
     programs.kitty = {

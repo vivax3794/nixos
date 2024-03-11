@@ -99,13 +99,30 @@ return {
     { 'rasulomaroff/reactive.nvim',
         opts = {
             builtin = {
-            cursorline = true,
-            cursor = true,
-            modemsg = true
+                cursorline = {
+                    modes = {
+                        i = {
+                            winhl = {
+                                CursorLine = { bg = "none"}
+                            }
+                        },
+                        n = {
+                            winhl = {
+                                CursorLine = { bg = "none"}
+                            }
+                        }
+                    }
+                },
+                cursor = true,
+                modemsg = true
           }
         }
     },
     {
         'github/copilot.vim'
+    },
+    {
+        'IndianBoy42/tree-sitter-just',
+        otps = {},
     }
 }

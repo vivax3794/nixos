@@ -79,6 +79,7 @@
             "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICJQriJuEQiAyEm0jBbI9hQzUZjRFFffIEWUNbal4VsX vivax"
         ];
     };
+    virtualisation.docker.enableNvidia = true;
     hardware.keyboard.zsa.enable = true;
 
     environment.systemPackages = with pkgs; [

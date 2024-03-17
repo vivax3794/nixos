@@ -8,10 +8,14 @@ local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
 -- Move to previous/next
-map('n', '<leader>bp', '<Cmd>BufferPrevious<CR>', opts)
-map('n', '<leader>bn', '<Cmd>BufferNext<CR>', opts)
+map('n', '<left>', '<Cmd>BufferPrevious<CR>', opts)
+map('n', '<right>', '<Cmd>BufferNext<CR>', opts)
+
+map('n', '<leader>t', '<Cmd>term<CR>', opts)
+map('t', '<esc>', '<C-\\><C-n>', opts)
+
 map('n', '<leader>bc', '<Cmd>BufferClose<CR>', opts)
-map('n', '<leader>bj', '<Cmd>BufferPick<CR>', opts)
+map('n', '<leader>bp', '<Cmd>BufferPick<CR>', opts)
 
 return {
     {

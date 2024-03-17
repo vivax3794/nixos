@@ -26,7 +26,7 @@
             font_size = 18;
             disable_ligratures = "cursor";
             background_opacity = "0.9";
-            shell = "zellij";
+            shell = "fish";
         };
         extraConfig = ( builtins.readFile ./colors/kitty.conf );
     };

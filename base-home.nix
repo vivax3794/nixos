@@ -37,8 +37,7 @@
             dn = "nix develop '/etc/nixos/generic_shell/#node' --command fish";
             dp = "nix develop '/etc/nixos/generic_shell/#python' --command ipython";
 
-            gr = "cargo-generate gen --path /etc/nixos/templates/rust";
-            gb = "cargo-generate gen --path /etc/nixos/templates/bevy";
+            db = "docker compose run --build --entrypoint bash --rm -v $(pwd):/app";
         };
     };
     programs.starship = {
@@ -47,7 +46,7 @@
     };
     programs.zellij = {
         enable = true;
-        enableFishIntegration = true;
+        # enableFishIntegration = true;
     };
 
     home.file.".config/zellij/config.kdl".source = ./dotfiles/zellij.kdl;

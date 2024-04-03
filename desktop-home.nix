@@ -35,15 +35,4 @@
     home.file.".config/waybar/config".source =  ./dotfiles/waybar;
     home.file.".config/waybar/style.css".source = ./dotfiles/waybar.css;
     home.file.".config/tofi/config".source = ./dotfiles/tofi;
-
-    home.file.".config/hypr/hyprpaper.conf".text = let
-        monitor1 = "/etc/nixos/wallpaper/monitor1.jpg";
-        monitor2 = "/etc/nixos/wallpaper/monitor2.jpg";
-    in ''
-    preload = ${monitor1} 
-    preload = ${monitor2} 
-
-    wallpaper = HDMI-A-1,${monitor1}
-    wallpaper = DP-1,${monitor2}
-    '';
 }

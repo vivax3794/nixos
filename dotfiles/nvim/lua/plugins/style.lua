@@ -11,6 +11,9 @@ local opts = { noremap = true, silent = true }
 map('n', '<left>', '<Cmd>BufferPrevious<CR>', opts)
 map('n', '<right>', '<Cmd>BufferNext<CR>', opts)
 
+map('n', '<leader><left>', '<Cmd>BufferMovePrevious<CR>', opts)
+map('n', '<leader><right>', '<Cmd>BufferMoveNext<CR>', opts)
+
 map('n', '<leader>t', '<Cmd>term<CR>', opts)
 map('t', '<esc>', '<C-\\><C-n>', opts)
 

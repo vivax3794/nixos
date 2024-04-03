@@ -2,6 +2,7 @@
 vim.cmd[[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 
 vim.keymap.set("n", "<leader>d", vim.diagnostic.goto_next)
+vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
 
 vim.filetype.add({
     extension = {

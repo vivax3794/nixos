@@ -9,9 +9,7 @@ local on_attach = function(_, bufnr)
     vim.cmd.RustLsp('codeAction') 
   end, { buffer = bufnr })
 
-  vim.keymap.set("n", "<Leader>e", function()
-    vim.cmd.RustLsp('renderDiagnostic') 
-  end, { buffer = bufnr })
+  vim.keymap.set('v', '<Leader>a', vim.lsp.buf.code_action)
 end
 
 return {
@@ -23,6 +21,11 @@ return {
       vim.g.rustaceanvim = {
         -- LSP configuration
         server = {
+          capabilities = {
+              experimental = {
+                  snippetTextEdit = false
+              }
+          },
           on_attach = on_attach,
           settings = {
             -- rust-analyzer language server configuration

@@ -45,9 +45,12 @@
         imagemagick
         ffmpeg
 
-        git
         gh
     ];
+    programs.git = {
+      enable = true;
+      lfs.enable = true;
+    };
 
 
     programs.fish.enable = true;

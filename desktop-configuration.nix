@@ -127,6 +127,11 @@
         cloudflare-warp
     ];
 
+    services.ollama = {
+        enable = true;
+        acceleration = "cuda";
+    };
+
     hardware.opentabletdriver = {
         enable = true;
         daemon.enable = true;

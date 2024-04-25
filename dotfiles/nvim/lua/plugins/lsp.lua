@@ -15,6 +15,7 @@ vim.diagnostic.config {
     severity_sort = true,
 }
 
+vim.lsp.inlay_hint.enable(true)
 return {
     {
         "neovim/nvim-lspconfig",
@@ -41,9 +42,6 @@ return {
                 vim.defer_fn(function()
                   -- Check if the LSP server supports inlay hints
                   local client = vim.lsp.get_client_by_id(args.data.client_id)
-                  if client.server_capabilities.inlayHintProvider then
-                      vim.lsp.inlay_hint.enable(args.buf, true)
-                  end
                 end, 500)
               end
             })

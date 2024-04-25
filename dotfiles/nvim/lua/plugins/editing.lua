@@ -118,9 +118,9 @@ return {
           }
         }
     },
-    {
-        'github/copilot.vim'
-    },
+    -- {
+    --     'github/copilot.vim'
+    -- },
     {
         'IndianBoy42/tree-sitter-just',
         otps = {},

@@ -32,6 +32,14 @@ return {
             Generate_Code = {
                 prompt = "Generate $ftype code that does the following: $input\n\n" .. response_format,
                 action = "display_insert"
+            },
+            Generate_Docs = {
+                prompt = "Generate $ftype docs as specified: $input\n\n" ..
+                        "respond only with the new docs and none of the surrounding code.\nDo not respond with the method/function signature/body or anything except the docs.\n\n" ..
+                        "\n\nContext: ```$ftype\n$sel```"
+                        .. "Respond EXACTTLY in this format: ```rust\n/// <your docs>```",
+                action = "display_insert",
+                extract = "^(.*)$"
             }
         }
     }

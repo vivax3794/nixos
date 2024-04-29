@@ -46,6 +46,10 @@
         ffmpeg
 
         gh
+
+        nodePackages.volar
+        nodePackages.vls
+        nodePackages.typescript-language-server
     ];
     programs.git = {
       enable = true;

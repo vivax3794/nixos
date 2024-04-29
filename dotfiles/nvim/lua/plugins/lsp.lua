@@ -22,9 +22,19 @@ return {
         dependencies = {"williamboman/mason-lspconfig.nvim"},
         config = function()
             require'lspconfig'.volar.setup{
-                filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'}
+                filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'},
+                init_options = {
+                    vue = {
+                        hybridMode = false,
+                    },
+                    plugins = {
+                          {
+                            name = "@vue/typescript-plugin",
+                            languages = { "javascript", "typescript", "vue" },
+                          },
+                        },
+                }
             }
-            require'lspconfig'.svelte.setup{}
 
             local capabilities = vim.lsp.protocol.make_client_capabilities()
             capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -32,7 +42,6 @@ return {
             require'lspconfig'.cssls.setup {
               capabilities = capabilities,
             }
-            require'lspconfig'.tailwindcss.setup{}
 
             vim.api.nvim_create_autocmd("LspAttach", {
               group = vim.api.nvim_create_augroup("UserLspConfig", {}),
@@ -61,10 +70,8 @@ return {
         dependencies = {"williamboman/mason.nvim"},
         opts = {
             ensure_installed = {
-                "rust_analyzer", 
                 "volar",
                 "typescript",
-                "svelte"
             }
         }
     },

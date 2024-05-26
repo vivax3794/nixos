@@ -14,7 +14,8 @@
         cargo-generate
         lazygit
         jq
-        nodejs_21
+        nodejs
+        copier
     ];
 
     # shell

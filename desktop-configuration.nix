@@ -120,6 +120,7 @@
         krita
         ldtk
         lutris
+        # houdini
 
         wine
 

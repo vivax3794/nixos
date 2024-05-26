@@ -4,6 +4,7 @@
     imports =
     [ # Include the results of the hardware scan.
         ./hardware-configuration.nix
+        # ./cachix.nix
     ];
 
     nixpkgs.config.permittedInsecurePackages = [
@@ -119,8 +120,6 @@
         obsidian
         krita
         ldtk
-        lutris
-        # houdini
 
         wine
 
@@ -140,6 +139,7 @@
 
     # For obs virtual cam
     boot.kernelModules = ["v4l2loopback" "coretemp" "lm75" "nct6775"];
+    boot.kernelParams = [ "nvidia.NVreg_PreserveVideoMemoryAllocations=1" ];
     boot.extraModulePackages = [pkgs.linuxPackages.v4l2loopback];
     boot.extraModprobeConfig = ''
     options v4l2loopback exclusive_caps=1

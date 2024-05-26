@@ -10,8 +10,6 @@
         # games
         protontricks
         protonup-ng # proton-GE
-        prismlauncher
-        dolphin-emu
 
         nvtop # Nvidia usage
         gifsicle # gif optimizer

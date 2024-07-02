@@ -1,0 +1,14 @@
+[pyprland]
+plugins = ["wallpapers", "scratchpads"]
+
+[wallpapers]
+path = "/etc/nixos/wallpaper"
+unique = true
+interval = 10
+
+[scratchpads.term]
+animation = "fromTop"
+command = "kitty --class kitty-dropterm"
+class = "kitty-dropterm"
+size = "75% 80%"
+margin = 50

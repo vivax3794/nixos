@@ -14,6 +14,7 @@
         # Git
         gh
         lazygit
+        bacon
 
         # Image stuff
         imagemagick
@@ -65,8 +66,36 @@
             mv = "mv -v";
             cp = "cp -v";
 
-            d = "nix develop --command fish";
-            n = "nix develop --command nvim";
+            ds = "nix develop --command fish";
+            dn = "nix develop --command nvim";
+
+            bc = "bluetoothctl connect 88:C9:E8:98:4F:D6";
+            bd = "bluetoothctl disconnect 88:C9:E8:98:4F:D6";
+        };
+        functions = {
+            ns = "nix-shell -p $argv[1] --run fish";
+            gt = "copier copy /home/vivax/templates/$argv[1] $argv[2]";
+            zt = ''
+                rm -r /tmp/zellij_template
+                set command copier copy /home/vivax/templates/zellij /tmp/zellij_template
+
+                if test -f Cargo.toml
+                    set command $command -d type=rust
+                else if test -f package.json
+                    set command $command -d type=nodejs
+                end
+
+                if test -d .git
+                    set command $command -d git=true
+                end
+
+                $command
+                if test -f flake.nix
+                    nix develop --command zellij --layout /tmp/zellij_template/layout.kdl
+                else
+                    zellij --layout /tmp/zellij_template/layout.kdl
+                end
+            '';
         };
     };
     programs.kitty = {

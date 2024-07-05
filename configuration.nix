@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }@inputs:
+{ config, pkgs, inputs, ... }:
 
 
 {
@@ -69,6 +69,9 @@
     environment.systemPackages = with pkgs; [
         cachix
 
+        # cursor
+        inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
+
         # shell
         fish
 
@@ -94,8 +97,7 @@
 
         # screenshooting
         grim
-        slurp
-        libnotify
+        flameshot
 
         # sound
         pavucontrol

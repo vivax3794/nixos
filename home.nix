@@ -41,13 +41,13 @@
         floorp
         chromium
         obs-studio
-        steam
         libresprite
         krita
         ldtk
+        dbeaver-bin
 
         (pkgs.discord.override {
-          withOpenASAR = true;
+          # withOpenASAR = true;
           withVencord = true;
         })
 
@@ -55,6 +55,9 @@
         ripgrep
         fd
         clang
+
+        filelight
+        teams-for-linux
     ];
 
     # Program configs

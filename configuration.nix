@@ -55,10 +55,11 @@
         };
     };
 
+    programs.adb.enable = true;
     users.users.vivax = {
         isNormalUser = true;
         description = "vivax";
-        extraGroups = [ "networkmanager" "wheel" "video" "docker"];
+        extraGroups = [ "networkmanager" "wheel" "video" "docker" "adbusers"];
         packages = with pkgs; [];
     };
 
@@ -66,7 +67,15 @@
     hardware.keyboard.zsa.enable = true;
 
     # List packages installed in system profile.
+    programs.steam = {
+      enable = true;
+      remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+      dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+      localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+    };
     environment.systemPackages = with pkgs; [
+        steamcmd
+
         cachix
 
         # cursor
@@ -101,6 +110,8 @@
 
         # sound
         pavucontrol
+
+        cloudflared
     ];
     fonts.packages = with pkgs; [
         fira-code
@@ -120,8 +131,16 @@
     environment.shells = [pkgs.fish];
 
     # Docker
-    virtualisation.docker.enable = true;
-    virtualisation.docker.enableNvidia = true;
+    virtualisation.docker = {
+        enable = true;
+        enableNvidia = true;
+        package = pkgs.docker_27;
+
+        autoPrune = {   
+            enable = true;
+            flags = ["--all"];
+        };
+    };
 
     # Ollama
     services.ollama = {

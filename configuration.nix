@@ -14,6 +14,10 @@
         ./cachix.nix
     ];
 
+    nixpkgs.config.permittedInsecurePackages = [
+        "electron-29.4.6"
+    ];
+
     # Nix settings
     nix.settings.experimental-features = ["nix-command" "flakes"];
     nixpkgs.config.allowUnfree = true;
@@ -106,7 +110,6 @@
 
         # screenshooting
         grim
-        flameshot
 
         # sound
         pavucontrol

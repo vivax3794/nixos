@@ -57,7 +57,6 @@
         clang
 
         filelight
-        teams-for-linux
     ];
 
     # Program configs
@@ -147,6 +146,14 @@
             padding-bottom = 8;
             padding-left = "35%";
             padding-right = 8;
+        };
+    };
+    services.flameshot = {
+        enable = true;
+        settings = {
+            General = {
+                disabledGrimWarning=true;
+            };
         };
     };
     home.activation = {

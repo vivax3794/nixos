@@ -57,6 +57,7 @@
         clang
 
         filelight
+        prismlauncher
     ];
 
     # Program configs

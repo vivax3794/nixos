@@ -115,6 +115,12 @@
         pavucontrol
 
         cloudflared
+
+        # Cuda
+        cudaPackages.cudatoolkit
+        cudaPackages.cudnn
+
+        appimage-run
     ];
     fonts.packages = with pkgs; [
         fira-code
@@ -149,6 +155,9 @@
     services.ollama = {
         enable = true;
         acceleration = "cuda";
+        # package = pkgs.ollama.overrideAttrs (finalAttrs: previousAttrs: {
+        #   version = "0.3.8";
+        # });
     };
 
     # Audio

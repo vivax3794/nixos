@@ -14,19 +14,17 @@
         # Git
         gh
         lazygit
-        bacon
 
         # Image stuff
         imagemagick
         ffmpeg
-        gifsicle # gif optimizer
 
         # Node
         nodejs
-        vue-language-server
-        vue-language-server
-        nodePackages.vls
-        nodePackages.typescript-language-server
+        # vue-language-server
+        # vue-language-server
+        # nodePackages.vls
+        # nodePackages.typescript-language-server
 
         # games
         protontricks
@@ -44,7 +42,6 @@
         libresprite
         krita
         ldtk
-        dbeaver-bin
 
         (pkgs.discord.override {
           # withOpenASAR = true;
@@ -58,12 +55,18 @@
 
         filelight
         prismlauncher
+
+        earthly
+
+        p7zip
     ];
 
     # Program configs
     programs.fish = {
         enable = true;
-        interactiveShellInit = builtins.readFile ./colors/fish.fish;
+        interactiveShellInit = ''
+            fish_add_path $HOME/coding/arcane/artifacts/bin
+        '' + builtins.readFile ./colors/fish.fish;
         shellAliases = {
             rm = "rm -v";
             mv = "mv -v";
@@ -72,8 +75,8 @@
             ds = "nix develop --command fish";
             dn = "nix develop --command nvim";
 
-            bc = "bluetoothctl connect 88:C9:E8:98:4F:D6";
-            bd = "bluetoothctl disconnect 88:C9:E8:98:4F:D6";
+            bc = "bluetoothctl connect AC:80:0A:F4:0B:FC";
+            bd = "bluetoothctl disconnect AC:80:0A:F4:0B:FC";
         };
         functions = {
             ns = "nix-shell -p $argv[1] --run fish";

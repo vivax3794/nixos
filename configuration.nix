@@ -14,6 +14,11 @@
         ./cachix.nix
     ];
 
+    # nix.settings = {
+    #     substituters = ["https://hyprland.cachix.org"];
+    #     trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+    # };
+
     nixpkgs.config.permittedInsecurePackages = [
         "electron-29.4.6"
     ];
@@ -31,7 +36,11 @@
     };
 
     # Hyprland
-    programs.hyprland.enable = true;
+    programs.hyprland = {
+        enable = true;
+        # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+        # portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+    };
     programs.waybar.enable = true;
     programs.xwayland.enable = true;
     xdg.portal = {
@@ -79,6 +88,7 @@
     };
     environment.systemPackages = with pkgs; [
         steamcmd
+        alvr
 
         cachix
 
@@ -105,7 +115,6 @@
         # Portals
         xdg-desktop-portal
         xdg-desktop-portal-gtk
-        xdg-desktop-portal-hyprland
         polkit-kde-agent # Password asker thing
 
         # screenshooting
@@ -121,6 +130,9 @@
         cudaPackages.cudnn
 
         appimage-run
+        xdg-dbus-proxy
+
+        rkvm
     ];
     fonts.packages = with pkgs; [
         fira-code
@@ -140,10 +152,9 @@
     environment.shells = [pkgs.fish];
 
     # Docker
+    hardware.nvidia-container-toolkit.enable = true;
     virtualisation.docker = {
         enable = true;
-        enableNvidia = true;
-        package = pkgs.docker_27;
 
         autoPrune = {   
             enable = true;
@@ -161,13 +172,13 @@
     };
 
     # Audio
+    # services.pipewire.wireplumber.enable = true;
     services.pipewire = {
         enable = true;
         audio.enable = true;
         pulse.enable = true;
         jack.enable = true;
         alsa.enable = true;
-
     };
     hardware.bluetooth.enable = true;
 
@@ -184,7 +195,7 @@
     networking.networkmanager.enable = true;
     networking.hostName = "nixos";
     networking.firewall = {
-        enable = true;
+        enable = false;
         allowedTCPPorts = [ ];
     };
 
@@ -202,6 +213,40 @@
         LC_TELEPHONE = "nb_NO.UTF-8";
         LC_TIME = "nb_NO.UTF-8";
     };
+
+  #     services.wivrn = {
+  #   enable = true;
+  #   openFirewall = true;
+  #
+  #   # Write information to /etc/xdg/openxr/1/active_runtime.json, VR applications
+  #   # will automatically read this and work with wivrn
+  #   defaultRuntime = true;
+  #
+  #   # Executing it through the systemd service executes WiVRn w/ CAP_SYS_NICE
+  #   # Resulting in no stutters!
+  #   autoStart = true;
+  # };
+
+    programs.nix-ld.enable = true;
+    programs.nix-ld.libraries = with pkgs; [
+        libGL
+        xorg.libX11
+        xorg.libXcursor
+        xorg.libXi
+        xorg.libXinerama
+        xorg.libXrandr
+        xorg.libXrender
+        xorg.libXext
+        xorg.libxcb
+        libdrm
+        wayland
+        portaudio
+        sfml
+        alsa-lib
+        libglvnd
+        icu
+        # pulseaudioLight
+    ];
 
     system.stateVersion = "23.05"; # DO NOT CHANGE
 }

@@ -43,7 +43,7 @@ return {
               capabilities = capabilities,
             }
 
-            require'lspconfig'.pyright.setup{}
+            require'lspconfig'.pylsp.setup{}
             require'lspconfig'.html.setup{
               capabilities = capabilities,
             }
@@ -166,6 +166,10 @@ return {
     {
         "imsnif/kdl.vim",
         ft = {"kdl"}
+    },
+    {
+        "earthly/earthly.vim",
+        ft = {"Earthfile"}
     },
     {
         "fladson/vim-kitty",

@@ -137,7 +137,8 @@
     fonts.packages = with pkgs; [
         fira-code
         fira-code-symbols
-        nerdfonts
+        nerd-fonts.fira-code
+        nerd-fonts.symbols-only
     ];
 
     programs.git = {
@@ -247,6 +248,24 @@
         icu
         # pulseaudioLight
     ];
+
+    services.webhook = {
+        enable = true;
+        openFirewall = true;
+        hooks = {
+            headset = {
+                execute-command = "/etc/nixos/connect_headset.sh";
+            };
+        };
+    };
+
+    services.syncthing = {
+        enable = true;
+        # group = "mygroupname";
+        user = "vivax";
+        dataDir = "/home/vivax/Sync";    # Default folder for new synced folders
+        configDir = "/home/vivax/Sync/.config/syncthing";   # Folder for Syncthing's settings and keys
+    };
 
     system.stateVersion = "23.05"; # DO NOT CHANGE
 }

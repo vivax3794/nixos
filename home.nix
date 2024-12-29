@@ -10,6 +10,8 @@
         tree-sitter
 
         copier # Template engine
+        keymapp
+        kontroll
 
         # Git
         gh
@@ -59,6 +61,8 @@
         earthly
 
         p7zip
+        obsidian
+        freecad-wayland
     ];
 
     # Program configs
@@ -76,9 +80,12 @@
             dn = "nix develop --command nvim";
 
             bc = "bluetoothctl connect AC:80:0A:F4:0B:FC";
-            bd = "bluetoothctl disconnect AC:80:0A:F4:0B:FC";
         };
         functions = {
+            bd = ''
+            bluetoothctl disconnect AC:80:0A:F4:0B:FC
+            curl -X POST http://pi.home:1880/headset
+            '';
             ns = "nix-shell -p $argv[1] --run fish";
             gt = "copier copy /home/vivax/templates/$argv[1] $argv[2]";
             zt = ''

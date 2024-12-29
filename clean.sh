@@ -6,3 +6,5 @@ echo "CLEANING: EARTHLY"
 earthly prune -a
 echo "CLEANING: DOCKER"
 docker system prune -a -f
+echo "CLEANING: Rust target folders"
+rm -rfv /home/vivax/coding/**/target

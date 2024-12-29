@@ -6,6 +6,22 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 
+vim.api.nvim_create_autocmd("ModeChanged", {
+  pattern = "*:i",  -- Trigger when entering Insert mode (adjust as needed)
+  callback = function()
+    local cmd = "kontroll set-layer --index 0"  -- Replace with your desired shell command
+    vim.fn.system(cmd)
+  end,
+})
+
+vim.api.nvim_create_autocmd("ModeChanged", {
+  pattern = "i:*",  -- Trigger when leaving Insert mode
+  callback = function()
+    local cmd = "kontroll set-layer --index 5"  -- Replace with your desired shell command
+    vim.fn.system(cmd)
+  end,
+})
+
 vim.opt.linebreak = true
 -- vim.opt.breakident = true
 vim.opt.formatoptions = "l"
